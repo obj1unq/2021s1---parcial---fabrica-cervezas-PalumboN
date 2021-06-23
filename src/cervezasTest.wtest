@@ -1,0 +1,94 @@
+import cervezas.*
+
+describe "Fabrica de cervezas" {
+
+	/* ACLARACIÓN 
+	 * El test asume todos los objetos como instancias de clases. 
+	 * Si el diseño de tu solución utiliza objetos bien conocidos en algunos casos entonces 
+	 * se debe remover la declaración de la variable donde se sugiere la instanciación
+	 * y usar el object directamente.
+	 */
+	
+//	const loteClasica = //TODO: construir/obtener un lote de cerveza Clásica con lúpulo local y levadura de fermentación alta
+//	const loteLager = //TODO: construir/obtener un lote de cerveza Lager con lúpulo importado y 2 grs de aditivos
+//	const lotePorter = //TODO: construir/obtener un lote de cerveza Porter con lúpulo importado y 9% de contenido alcoholico
+//	const distribuidorLosTresBirreros = //TODO: construir/obtener un distribuidor con una comisión del 5% y promoción por cantidad a partir de 3 lotes
+//	const distribuidorMoe = //TODO: construir/obtener un distribuidor con una comisión del 7% y promoción por cantidad a partir de 6 lotes	
+//	const pedidoLoteClasica = //TODO: construir/obtener un pedido de 4 lotes de cerveza Clásica para entregar a 4km de distancia
+//	const pedidoLoteClasicaGrande = //TODO: construir/obtener un pedido de 15 lotes de cerveza Clásica para entregar a 0.5km de distancia
+//	const pedidoLotePorter = //TODO: construir/obtener un pedido de 2 lotes de cerveza Porter para entregar a 0.5km de distancia
+//	const pedidoCompuesto = //TODO: construir/obtener un pedido compuesto por pedidoLoteClasica, pedidoLoteClasicaGrande y pedidoLotePorter
+	
+/*	
+	fixture {
+		//TODO: hacer que distribuidorLosTresBirreros tenga pendientes los pedidos: pedidoLoteClasica, pedidoLoteClasicaGrande y pedidoLotePorter 
+		//TODO: hacer que loteClasica tenga 30 grs de azúcar 
+		//TODO: hacer que loteLager tenga 20 grs de azúcar 		
+		//TODO: hacer que lotePorter tenga 50 grs de azúcar
+		//TODO: configurar el máximo de IBU permitido en 35
+	}
+
+ */
+ 
+ 
+ /* 
+	test "El costo total de un lote de cerveza Clásica con lúpulo local y levadura de fermentación alta" {
+		//TODO: verificar que el costo de loteClasica es 880
+	}
+
+	test "El costo total de un lote de cerveza Lager con lúpulo importado" {
+		//TODO: verificar que el costo de loteLager es 1300
+	}
+	
+	test "El costo total de un lote de cerveza Lager con lúpulo importado y menor impuesto al lúpulo" {
+		//TODO: cambiar el impuesto al lúpulo de la AFIP al 10%
+		//TODO: verificar que el costo de loteLager es 1200
+	}
+
+	test "El costo de producción de un lote de cerveza Porter con lúpulo importado" {
+		//TODO: verificar que el costo de lotePorter es 1650
+	}
+
+	test "El precio final de un pedido con promocion" {
+		 //TODO: verificar que el precio de pedidoLoteClasica para distribuidorLosTresBirreros es de 3520 (3520 + 176 - 176)
+	}
+
+	test "El precio final de un pedido sin promocion" {
+		 //TODO: verificar que el precio de pedidoLoteClasica para distribuidorMoe es de 3520 (3520 + 246.4)
+	}
+	
+	test "Concretar todos los pedidos pendientes" {
+		//TODO: hacer que distribuidorLosTresBirreros concrete todos los pedidos pendientes
+		//TODO: verificar que el total cobrado por distribuidorLosTresBirreros es de 1001 (176 + 660 + 165)
+	}
+
+	test "Los pedidos pendientes dificiles" {
+		//TODO: verificar que los pedidos dífiles pendientes de distribuidorLosTresBirreros son pedidoLoteClasica y pedidoLoteClasicaGrande 
+	}
+	
+	test "Los lotes de cervezas a encargar" {
+		//TODO: verificar que los lotes de cervezas a encargar por distribuidorLosTresBirreros son loteClasica y lotePorter 
+	}
+
+	test "El IBU de un lote de cerveza" {
+		//TODO: verificar que el ibu de loteClasica es 24
+		//TODO: verificar que el ibu de loteLager es 16
+		//TODO: verificar que el ibu de lotePorter es 40.4
+	}
+
+	test "Tomar nuevo pedido" {
+		//TODO: hacer que distribuidorMoe tome el pedidoLoteClasica 
+		//TODO: verificar que distribuidorMoe tiene pedidoLoteClasica como único pendiente
+		//TODO: hacer que distribuidorMoe tome el pedidoLotePorter (No se puede por no ser legal!) 
+		//TODO: verificar que distribuidorMoe solamente quedó con pedidoLoteClasica como único pendiente
+	}
+
+	test "Pedido compuesto" {
+		//TODO: verificar que el precio de pedidoCompuesto para distribuidorMoe es de 20761.4
+		//TODO: hacer que distribuidorMoe tome el pedidoCompuesto (No se puede por tener un subpedido no legal!) 
+		//TODO: cambiar el máximo de IBU permitido a 50
+		//TODO: hacer que distribuidorMoe tome el pedidoCompuesto (Ahora sí es legal) 
+		//TODO: verificar que distribuidorMoe tiene pedidoCompuesto como único pendiente
+	}
+*/
+}
