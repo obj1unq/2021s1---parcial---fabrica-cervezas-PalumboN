@@ -8,87 +8,117 @@ describe "Fabrica de cervezas" {
 	 * se debe remover la declaración de la variable donde se sugiere la instanciación
 	 * y usar el object directamente.
 	 */
+
+
+	//TODO: construir/obtener un lote de cerveza Clásica con lúpulo local y levadura de fermentación alta
+	//TODO: hacer que loteClasica tenga 30 grs de azúcar 
+	const loteClasica = new Clasica(levadura = alta, lupulo = local, azucar = 30)
+	//TODO: construir/obtener un lote de cerveza Lager con lúpulo importado y 2 grs de aditivos
+	//TODO: hacer que loteLager tenga 20 grs de azúcar 		
+	const loteLager = new Lager(aditivo = 2, lupulo = importado, azucar = 20)
+	//TODO: construir/obtener un lote de cerveza Porter con lúpulo importado y 9% de contenido alcoholico
+	//TODO: hacer que lotePorter tenga 50 grs de azúcar
+	const lotePorter = new Porter(contenidoAlcoholico = 0.09, lupulo = importado, azucar = 50)
+	//TODO: construir/obtener un pedido de 4 lotes de cerveza Clásica para entregar a 4km de distancia
+	const pedidoLoteClasica = new PedidoSimple(cantidadLotes = 4, loteCerveza = loteClasica, distancia = 4)
+	//TODO: construir/obtener un pedido de 15 lotes de cerveza Clásica para entregar a 0.5km de distancia 
+	const pedidoLoteClasicaGrande = new PedidoSimple(cantidadLotes = 15, loteCerveza = loteClasica, distancia = 0.5)
+	//TODO: construir/obtener un pedido de 2 lotes de cerveza Porter para entregar a 0.5km de distancia
+	const pedidoLotePorter = new PedidoSimple(cantidadLotes = 2, loteCerveza = lotePorter, distancia = 0.5)
+	//TODO: construir/obtener un pedido compuesto por pedidoLoteClasica, pedidoLoteClasicaGrande y pedidoLotePorter
+	const pedidoCompuesto = new PedidoCompuesto(pedidos=[pedidoLoteClasica, pedidoLoteClasicaGrande, pedidoLotePorter])
+
+	//TODO: construir/obtener un distribuidor con una comisión del 5% y promoción por cantidad a partir de 3 lotes
+	//TODO: hacer que distribuidorLosTresBirreros tenga pendientes los pedidos: pedidoLoteClasica, pedidoLoteClasicaGrande y pedidoLotePorter 
+	const distribuidorLosTresBirreros = new Distribuidor(comision = 0.05, promocion = new PorCantidad(cantidadLimite = 3), pedidosPendientes = [pedidoLoteClasica, pedidoLoteClasicaGrande, pedidoLotePorter])
+	//TODO: construir/obtener un distribuidor con una comisión del 7% y promoción por cantidad a partir de 6 lotes 
+	const distribuidorMoe = new Distribuidor(comision = 0.07, promocion = new PorCantidad(cantidadLimite = 6))
 	
-//	const loteClasica = //TODO: construir/obtener un lote de cerveza Clásica con lúpulo local y levadura de fermentación alta
-//	const loteLager = //TODO: construir/obtener un lote de cerveza Lager con lúpulo importado y 2 grs de aditivos
-//	const lotePorter = //TODO: construir/obtener un lote de cerveza Porter con lúpulo importado y 9% de contenido alcoholico
-//	const distribuidorLosTresBirreros = //TODO: construir/obtener un distribuidor con una comisión del 5% y promoción por cantidad a partir de 3 lotes
-//	const distribuidorMoe = //TODO: construir/obtener un distribuidor con una comisión del 7% y promoción por cantidad a partir de 6 lotes	
-//	const pedidoLoteClasica = //TODO: construir/obtener un pedido de 4 lotes de cerveza Clásica para entregar a 4km de distancia
-//	const pedidoLoteClasicaGrande = //TODO: construir/obtener un pedido de 15 lotes de cerveza Clásica para entregar a 0.5km de distancia
-//	const pedidoLotePorter = //TODO: construir/obtener un pedido de 2 lotes de cerveza Porter para entregar a 0.5km de distancia
-//	const pedidoCompuesto = //TODO: construir/obtener un pedido compuesto por pedidoLoteClasica, pedidoLoteClasicaGrande y pedidoLotePorter
-	
-/*	
 	fixture {
-		//TODO: hacer que distribuidorLosTresBirreros tenga pendientes los pedidos: pedidoLoteClasica, pedidoLoteClasicaGrande y pedidoLotePorter 
-		//TODO: hacer que loteClasica tenga 30 grs de azúcar 
-		//TODO: hacer que loteLager tenga 20 grs de azúcar 		
-		//TODO: hacer que lotePorter tenga 50 grs de azúcar
 		//TODO: configurar el máximo de IBU permitido en 35
+		ley.ibuMaximo(35)
 	}
 
- */
  
- 
- /* 
 	test "El costo total de un lote de cerveza Clásica con lúpulo local y levadura de fermentación alta" {
 		//TODO: verificar que el costo de loteClasica es 880
+		assert.equals(880, loteClasica.costoTotal())
 	}
 
 	test "El costo total de un lote de cerveza Lager con lúpulo importado" {
 		//TODO: verificar que el costo de loteLager es 1300
+		assert.equals(1300, loteLager.costoTotal())
 	}
 	
 	test "El costo total de un lote de cerveza Lager con lúpulo importado y menor impuesto al lúpulo" {
 		//TODO: cambiar el impuesto al lúpulo de la AFIP al 10%
+		importado.impuestoAFIP(0.1)
 		//TODO: verificar que el costo de loteLager es 1200
+		assert.equals(1200, loteLager.costoTotal())
 	}
 
 	test "El costo de producción de un lote de cerveza Porter con lúpulo importado" {
 		//TODO: verificar que el costo de lotePorter es 1650
+		assert.equals(1650, lotePorter.costoTotal())
 	}
 
 	test "El precio final de un pedido con promocion" {
 		 //TODO: verificar que el precio de pedidoLoteClasica para distribuidorLosTresBirreros es de 3520 (3520 + 176 - 176)
+		assert.equals(3520, pedidoLoteClasica.precioFinal(distribuidorLosTresBirreros))
 	}
 
 	test "El precio final de un pedido sin promocion" {
-		 //TODO: verificar que el precio de pedidoLoteClasica para distribuidorMoe es de 3520 (3520 + 246.4)
+		 //TODO: verificar que el precio de pedidoLoteClasica para distribuidorMoe es de 3766.4 (3520 + 246.4)
+		assert.equals(3766.4, pedidoLoteClasica.precioFinal(distribuidorMoe))
 	}
 	
 	test "Concretar todos los pedidos pendientes" {
 		//TODO: hacer que distribuidorLosTresBirreros concrete todos los pedidos pendientes
+		distribuidorLosTresBirreros.entregarPedidos()
 		//TODO: verificar que el total cobrado por distribuidorLosTresBirreros es de 1001 (176 + 660 + 165)
+		assert.equals(1001, distribuidorLosTresBirreros.cobrado())
 	}
 
 	test "Los pedidos pendientes dificiles" {
 		//TODO: verificar que los pedidos dífiles pendientes de distribuidorLosTresBirreros son pedidoLoteClasica y pedidoLoteClasicaGrande 
+		assert.equals([pedidoLoteClasica, pedidoLoteClasicaGrande], distribuidorLosTresBirreros.pedidosDificiles())
 	}
 	
 	test "Los lotes de cervezas a encargar" {
 		//TODO: verificar que los lotes de cervezas a encargar por distribuidorLosTresBirreros son loteClasica y lotePorter 
+		assert.equals(#{loteClasica, lotePorter}, distribuidorLosTresBirreros.lotesAEncargar())
 	}
 
 	test "El IBU de un lote de cerveza" {
 		//TODO: verificar que el ibu de loteClasica es 24
-		//TODO: verificar que el ibu de loteLager es 16
-		//TODO: verificar que el ibu de lotePorter es 40.4
+		assert.equals(24, loteClasica.ibu())
+		//TODO: verificar que el ibu de loteLager es 24
+		assert.equals(24, loteLager.ibu())
+		//TODO: verificar que el ibu de lotePorter es 60.6
+		assert.equals(60.6, lotePorter.ibu())
 	}
 
 	test "Tomar nuevo pedido" {
 		//TODO: hacer que distribuidorMoe tome el pedidoLoteClasica 
+		distribuidorMoe.tomarPedido(pedidoLoteClasica)
 		//TODO: verificar que distribuidorMoe tiene pedidoLoteClasica como único pendiente
+		assert.equals([pedidoLoteClasica], distribuidorMoe.pedidosPendientes())
 		//TODO: hacer que distribuidorMoe tome el pedidoLotePorter (No se puede por no ser legal!) 
+		assert.throwsException({distribuidorMoe.tomarPedido(pedidoLotePorter)})
 		//TODO: verificar que distribuidorMoe solamente quedó con pedidoLoteClasica como único pendiente
+		assert.equals([pedidoLoteClasica], distribuidorMoe.pedidosPendientes())
 	}
 
 	test "Pedido compuesto" {
 		//TODO: verificar que el precio de pedidoCompuesto para distribuidorMoe es de 20761.4
+		assert.equals(20761.4, pedidoCompuesto.precioFinal(distribuidorMoe)) //TODO: Revisar
 		//TODO: hacer que distribuidorMoe tome el pedidoCompuesto (No se puede por tener un subpedido no legal!) 
-		//TODO: cambiar el máximo de IBU permitido a 50
-		//TODO: hacer que distribuidorMoe tome el pedidoCompuesto (Ahora sí es legal) 
+		assert.throwsException({distribuidorMoe.tomarPedido(pedidoCompuesto)})
+		//TODO: cambiar el máximo de IBU permitido a 70
+		ley.ibuMaximo(70)
+		//TODO: hacer que distribuidorMoe tome el pedidoCompuesto (Ahora sí es legal)
+		distribuidorMoe.tomarPedido(pedidoCompuesto) 
 		//TODO: verificar que distribuidorMoe tiene pedidoCompuesto como único pendiente
+		assert.equals([pedidoCompuesto], distribuidorMoe.pedidosPendientes())
 	}
-*/
 }
